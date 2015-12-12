@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PSReadLine</RootNamespace>
     <AssemblyName>Microsoft.PowerShell.PSReadLine</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -92,6 +93,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LogicalName>Microsoft.PowerShell.PSReadline.PSReadLineResources.resources</LogicalName>
       <CustomToolNamespace>Microsoft.PowerShell</CustomToolNamespace>
+      <LastGenOutput>PSReadLineResources1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
