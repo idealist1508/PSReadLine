@@ -63,9 +63,11 @@ namespace Microsoft.PowerShell
 
         private static bool IsQuoted(string s)
         {
-            if (s.Length >= 2)
+            var offset = StartsWithAnd(s) ? 2 : 0;
+
+            if (s.Length >= 2 + offset)
             {
-                var first = s[0];
+                var first = s[offset];
                 var last = s[s.Length - 1];
 
                 return ((IsSingleQuote(first) && IsSingleQuote(last))
@@ -75,8 +77,17 @@ namespace Microsoft.PowerShell
             return false;
         }
 
+        private static bool StartsWithAnd(string s)
+        {
+            return (s.Length >= 1) && (s[0] == '&');
+        }
+
         private static string GetUnquotedText(string s, bool consistentQuoting)
         {
+            if (!consistentQuoting && StartsWithAnd(s))
+            {
+                s = s.Substring(2, s.Length - 2);
+            }
             if (!consistentQuoting && IsQuoted(s))
             {
                 s = s.Substring(1, s.Length - 2);
